@@ -27,19 +27,30 @@ public class ChessMatch {
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
 
-    private void placeNewPiece(String pos, ChessPiece piece) {
-        if (pos.length() != 2)
-            throw new ChessException(
-                    "Error instantiating ChessPosition. Valid values are from a1 to h8.");
-        char column = pos.charAt(0);
-        int row = Character.getNumericValue(pos.charAt(1));
-        board.placePiece(piece, new ChessPosition(column, row).toPosition());
-    }
+    // private void placeNewPiece(String pos, ChessPiece piece) {
+    // if (pos.length() != 2 || pos.charAt(0) < 'a' || pos.charAt(0) > 'h' || pos.charAt(1) < '1'
+    // || pos.charAt(1) > '8')
+    // throw new ChessException(
+    // "Error instantiating ChessPosition. Valid values are from a1 to h8.");
+    // char column = pos.charAt(0);
+    // int row = Character.getNumericValue(pos.charAt(1));
+    // placeNewPiece(column, row, piece);
+    // }
 
     private void initialSetup() {
-        placeNewPiece("b6", new Rook(board, Color.WHITE));
-        placeNewPiece("c2", new King(board, Color.BLACK));
-        placeNewPiece("d8", new King(board, Color.BLACK));
+        placeNewPiece('c', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('c', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('e', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('e', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 1, new King(board, Color.WHITE));
+
+        placeNewPiece('c', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('c', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('d', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('e', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('e', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('d', 8, new King(board, Color.BLACK));
 
     }
 
